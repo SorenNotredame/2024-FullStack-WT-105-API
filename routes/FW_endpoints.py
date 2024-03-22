@@ -2,12 +2,13 @@
 from fastapi import APIRouter
 import database
 from queries import FW_queries as queries
+from models import FW_models
 
 app = APIRouter()
 
 ### Become a dealer
 @app.post("/new_dealer")
-def create_newdealer(new_dealer: FW_Pydantic_models.new_dealer):
+def create_newdealer(new_dealer: FW_models.new_dealer):
     query = queries.insert_dealer_query
     success = database.execute_sql_query(query, (
         new_dealer.businessname,
@@ -33,7 +34,7 @@ def get_dealerinfo():
 
 ### Book a tour
 @app.post("/tour")
-def create_tour(tour: FW_Pydantic_models.tour):
+def create_tour(tour: FW_models.tour):
     query = queries.insert_tour_query
     success = database.execute_sql_query(query, (
         tour.name,
@@ -47,7 +48,7 @@ def create_tour(tour: FW_Pydantic_models.tour):
 
 ### Book a tasting
 @app.post("/tasting")
-def create_tasting(tasting: FW_Pydantic_models.tasting):
+def create_tasting(tasting: FW_models.tasting):
     query = queries.insert_tasting_query
     success = database.execute_sql_query(query, (
         tasting.name,
