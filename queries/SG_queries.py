@@ -1,3 +1,3 @@
 # GEBRUERS Stef
 
-get_all_employeecards = "select employeeId, firstName, alias, firstWords, linkToBio, linkToPicture from brusselsbrews.employee;"
+get_all_employeecards = "select employeeId, firstName, alias, firstWords, bio, linkToPicture, bioTitle from brusselsbrews.employee;"
