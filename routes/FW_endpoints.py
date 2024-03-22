@@ -41,6 +41,7 @@ def create_tour(tour: FW_models.tour):
         tour.email,
         tour.phone,
         tour.date,
+        tour.timeslot,
         tour.amount,
     ))
     if success:
@@ -70,7 +71,7 @@ def get_brewerinfo():
         return brewer, 500
     brewer_list = []
     for brewer in brewer:
-        brewer_dict = {'brewername': brewer[0], 'streetAndNumber': brewer[1], 'postal_codeAndCity': brewer[2], 'phone': brewer[3],'email': brewer[4],'opening_hours': brewer[5],'about': brewer[6]}
+        brewer_dict = {'brewername': brewer[0], 'streetAndNumber': brewer[1], 'postal_codeAndCity': brewer[2], 'phone': brewer[3],'email': brewer[4],'opening_hours': brewer[5],'about': brewer[7]}
         brewer_list.append(brewer_dict)
     return brewer_list
 
@@ -86,3 +87,16 @@ def get_authors():
         author_dict = {'authorname': author[0]}
         author_list.append(author_dict)
     return author_list
+
+### Tour timeslots
+@app.get("/timeslots")
+def get_timeslots():
+    query = queries.brewerinfo_query
+    brewer = database.execute_sql_query(query)
+    if isinstance(brewer, Exception):
+        return brewer, 500
+    timeslots = []
+    for brewer in brewer:
+        brewer_dict = {'timeslots': brewer[6]}
+        timeslots.append(brewer_dict)
+    return timeslots
