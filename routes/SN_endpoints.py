@@ -36,3 +36,21 @@ def get_beer_info():
             "image": beer[4]
         })
     return {'beers': beers_to_return}
+
+@app.get('/webshop')
+def get_webshop_beer_info():
+    query = queries.webshop_beers_query
+    beers = database.execute_sql_query(query)
+    if isinstance(beers, Exception):
+        return beers, 500
+    beers_to_return = []
+    for beer in beers:
+        beers_to_return.append({
+            "name": beer[0],
+            "id": beer[1],
+            "text": beer[2],
+            "bottle": beer[3],
+            "crate": beer[4],
+            "image": beer[5]
+        })
+    return {'beers': beers_to_return}
