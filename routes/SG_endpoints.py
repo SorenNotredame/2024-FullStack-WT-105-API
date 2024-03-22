@@ -17,7 +17,8 @@ def get_all_employeescards():
         employee_dictionary = {"name": card[1],
                                "alias": card[2],
                                "firstWords": card[3],
-                               "linktoBio": card[4],
-                               "linktoPicture": card[5]}
+                               "bio": card[4],
+                               "linktoPicture": card[5],
+                               "bioTitle": card[6]}
         carddata_to_return.append(employee_dictionary)
     return {'Employeecards': carddata_to_return}
