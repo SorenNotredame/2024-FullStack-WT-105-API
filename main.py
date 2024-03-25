@@ -14,6 +14,7 @@ app.include_router(router=SG_endpoints.app, prefix="/SG")
 app.include_router(router=SN_endpoints.app, prefix="/SN")
 app.include_router(router=TL_endpoints.app, prefix="/TL")
 
+
 origins = config.cors_origins.split(",")
 
 app.add_middleware(
