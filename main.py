@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+import os
+
 import config
+import database
 from routes import FW_endpoints, SG_endpoints, SN_endpoints, TL_endpoints
 
 app = FastAPI(docs_url=config.documentation_url)
