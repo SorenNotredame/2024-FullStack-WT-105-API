@@ -91,12 +91,12 @@ def get_authors():
 ### Tour timeslots
 @app.get("/timeslots")
 def get_timeslots():
-    query = queries.brewerinfo_query
-    brewer = database.execute_sql_query(query)
-    if isinstance(brewer, Exception):
-        return brewer, 500
-    timeslots = []
-    for brewer in brewer:
-        brewer_dict = {'timeslots': brewer[6]}
-        timeslots.append(brewer_dict)
-    return timeslots
+    query = queries.timeslot_query
+    timeslots = database.execute_sql_query(query)
+    if isinstance(timeslots, Exception):
+        return timeslots, 500
+    all_timeslots = []
+    for timeslot in timeslots:
+        timeslot_dict = {'timeslot': timeslot[6]}
+        all_timeslots.append(timeslot_dict)
+    return all_timeslots

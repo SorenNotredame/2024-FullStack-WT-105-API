@@ -11,3 +11,5 @@ insert_tasting_query = "INSERT INTO brusselsbrews.tasting (name, address, email,
 brewerinfo_query = "SELECT brewername, streetAndNumber, postal_codeAndCity, phone, email, opening_hours, about FROM brusselsbrews.brewer;"
 
 author_query = "SELECT authorname FROM brusselsbrews.author;"
+
+timeslot_query = "SELECT timeslot FROM brusselsbrews.timeslot;"
