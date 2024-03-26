@@ -71,7 +71,7 @@ def get_brewerinfo():
         return brewer, 500
     brewer_list = []
     for brewer in brewer:
-        brewer_dict = {'brewername': brewer[0], 'streetAndNumber': brewer[1], 'postal_codeAndCity': brewer[2], 'phone': brewer[3],'email': brewer[4],'opening_hours': brewer[5],'about': brewer[6]}
+        brewer_dict = {'brewername': brewer[0], 'streetAndNumber': brewer[1], 'postal_codeAndCity': brewer[2], 'phone': brewer[3],'email': brewer[4],'opening_hours': brewer[5],'about': brewer[6], 'latitude': brewer[7], 'longitude': brewer[8]}
         brewer_list.append(brewer_dict)
     return brewer_list
 

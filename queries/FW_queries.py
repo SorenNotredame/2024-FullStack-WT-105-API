@@ -8,7 +8,7 @@ insert_tour_query = "INSERT INTO brusselsbrews.tour (name, email, phone, date, t
 
 insert_tasting_query = "INSERT INTO brusselsbrews.tasting (name, address, email, phone, date, amount) VALUES (%s, %s, %s, %s, %s, %s);"
 
-brewerinfo_query = "SELECT brewername, streetAndNumber, postal_codeAndCity, phone, email, opening_hours, about FROM brusselsbrews.brewer;"
+brewerinfo_query = "SELECT brewername, streetAndNumber, postal_codeAndCity, phone, email, opening_hours, about, latitude, longitude FROM brusselsbrews.brewer;"
 
 author_query = "SELECT authorname FROM brusselsbrews.author;"
 
