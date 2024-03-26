@@ -23,3 +23,6 @@ class tasting(BaseModel):
     phone: str
     date: date
     amount: int
+
+class new_review(BaseModel):
+    new_review: str

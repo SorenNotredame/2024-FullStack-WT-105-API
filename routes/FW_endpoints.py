@@ -100,3 +100,26 @@ def get_timeslots():
         timeslot_dict = {'timeslot': timeslot[0]}
         all_timeslots.append(timeslot_dict)
     return all_timeslots
+
+### Tour reviews
+@app.get("/reviews")
+def get_reviews():
+    query = queries.review_query
+    reviews = database.execute_sql_query(query)
+    if isinstance(reviews, Exception):
+        return reviews, 500
+    all_reviews = []
+    for review in reviews:
+        review_dict = {'review_id': review[0], 'review': review[1]}
+        all_reviews.append(review_dict)
+    return all_reviews
+
+### Add a review
+@app.post("/new_review")
+def create_new_review(new_review: FW_models.new_review):
+    query = queries.insert_new_review_query
+    success = database.execute_sql_query(query, (
+        new_review.new_review,
+    ))
+    if success:
+        return new_review

@@ -13,3 +13,7 @@ brewerinfo_query = "SELECT brewername, streetAndNumber, postal_codeAndCity, phon
 author_query = "SELECT authorname FROM brusselsbrews.author;"
 
 timeslot_query = "SELECT timeslot FROM brusselsbrews.timeslot;"
+
+review_query = "SELECT review_id, review FROM brusselsbrews.review;"
+
+insert_new_review_query = "INSERT INTO brusselsbrews.new_review (new_review) VALUES (%s);"
