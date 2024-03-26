@@ -97,6 +97,6 @@ def get_timeslots():
         return timeslots, 500
     all_timeslots = []
     for timeslot in timeslots:
-        timeslot_dict = {'timeslot': timeslot[6]}
+        timeslot_dict = {'timeslot': timeslot[0]}
         all_timeslots.append(timeslot_dict)
     return all_timeslots
