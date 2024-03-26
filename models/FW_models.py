@@ -14,6 +14,7 @@ class tour(BaseModel):
     email: str
     phone: str
     date: date
+    timeslot: str
     amount: int
 
 class tasting(BaseModel):
