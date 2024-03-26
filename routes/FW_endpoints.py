@@ -28,7 +28,7 @@ def get_dealerinfo():
         return dealers, 500
     dealer_list = []
     for dealer in dealers:
-        dealer_dict = {'dealername': dealer[0], 'streetAndNumber': dealer[1], 'postal_codeAndCity': dealer[2], 'phone': dealer[3], 'email': dealer[4], 'opening_hours': dealer[5], 'products': dealer[6]}
+        dealer_dict = {'dealername': dealer[0], 'streetAndNumber': dealer[1], 'postal_codeAndCity': dealer[2], 'phone': dealer[3], 'email': dealer[4], 'opening_hours': dealer[5], 'products': dealer[6], 'latitude':dealer[7], 'longitude':dealer[8]}
         dealer_list.append(dealer_dict)
     return dealer_list
 
