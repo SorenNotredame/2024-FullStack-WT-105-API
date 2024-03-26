@@ -110,7 +110,7 @@ def get_reviews():
         return reviews, 500
     all_reviews = []
     for review in reviews:
-        review_dict = {'review_id': review[0], 'review': review[1]}
+        review_dict = {'review_id': review[0], 'reviewname': review[1], 'reviewtext': review[2]}
         all_reviews.append(review_dict)
     return all_reviews
 
@@ -119,7 +119,9 @@ def get_reviews():
 def create_new_review(new_review: FW_models.new_review):
     query = queries.insert_new_review_query
     success = database.execute_sql_query(query, (
-        new_review.new_review,
+        new_review.new_reviewname,
+        new_review.new_reviewtext,
+        new_review.new_reviewemail,
     ))
     if success:
         return new_review
