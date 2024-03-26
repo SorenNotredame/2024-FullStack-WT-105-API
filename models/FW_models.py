@@ -25,4 +25,6 @@ class tasting(BaseModel):
     amount: int
 
 class new_review(BaseModel):
-    new_review: str
+    new_reviewname: str
+    new_reviewtext: str
+    new_reviewemail: str
