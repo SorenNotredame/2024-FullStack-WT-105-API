@@ -8,3 +8,13 @@ class Faq(BaseModel):
     asked_by: str = None
     awnsered_by: str = None
     complete: bool = False
+
+class JobTitle(BaseModel):
+    jobtitle: str = None
+    
+class Job(BaseModel):
+    jobtitle: int = None
+    jobdescription: str = None
+    skills: str = None
+    education: str = None
+    experience: str = None
