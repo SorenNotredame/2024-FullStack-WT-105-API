@@ -14,6 +14,6 @@ author_query = "SELECT authorname FROM brusselsbrews.author;"
 
 timeslot_query = "SELECT timeslot FROM brusselsbrews.timeslot;"
 
-review_query = "SELECT review_id, reviewname, reviewtext FROM brusselsbrews.review;"
+review_query = "SELECT review_id, reviewname, reviewtext, reviewrating FROM brusselsbrews.review;"
 
-insert_new_review_query = "INSERT INTO brusselsbrews.new_review (new_reviewname, new_reviewtext, new_reviewemail) VALUES (%s, %s, %s);"
+insert_new_review_query = "INSERT INTO brusselsbrews.new_review (new_reviewname, new_reviewtext, new_reviewemail, new_reviewrating) VALUES (%s, %s, %s, %s);"

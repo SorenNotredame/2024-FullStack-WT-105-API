@@ -110,7 +110,7 @@ def get_reviews():
         return reviews, 500
     all_reviews = []
     for review in reviews:
-        review_dict = {'review_id': review[0], 'reviewname': review[1], 'reviewtext': review[2]}
+        review_dict = {'review_id': review[0], 'reviewname': review[1], 'reviewtext': review[2], 'reviewrating': review[3]}
         all_reviews.append(review_dict)
     return all_reviews
 
@@ -122,6 +122,7 @@ def create_new_review(new_review: FW_models.new_review):
         new_review.new_reviewname,
         new_review.new_reviewtext,
         new_review.new_reviewemail,
+        new_review.new_reviewrating,
     ))
     if success:
         return new_review

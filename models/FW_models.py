@@ -29,3 +29,4 @@ class new_review(BaseModel):
     new_reviewname: str
     new_reviewtext: str
     new_reviewemail: str
+    new_reviewrating: int
