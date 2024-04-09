@@ -10,5 +10,5 @@ class ContactForm(BaseModel):
     emailAddress: str
     content: str
     terms: int
-    addToMailingList: int
+    addToMailingList: int = None
     submitDate: datetime
