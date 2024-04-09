@@ -1,7 +1,7 @@
 # Author: GEBRUERS Stef
 
 from pydantic import BaseModel
-from datetime import date
+from datetime import datetime
 
 
 class ContactForm(BaseModel):
@@ -11,4 +11,4 @@ class ContactForm(BaseModel):
     content: str
     terms: int
     addToMailingList: int
-    submitDate: date
+    submitDate: datetime
