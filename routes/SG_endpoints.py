@@ -3,6 +3,12 @@ from fastapi import APIRouter
 import database
 from queries import SG_queries as queries
 from models import SG_models as models
+from datetime import date
+
+today = date.today()
+date_string = (today.strftime("%Y-%m-%d"),)
+print(type(date_string))
+
 
 app = APIRouter()
 
@@ -39,3 +45,25 @@ def post_contact_form(contactform: models.ContactForm):
     ))
     if success:
         return contactform
+
+@app.get('/events')
+def get_events(operator : str = ">="):
+    if operator == ">=":
+        query = queries.get_future_events
+        events = database.execute_sql_query(query, date_string)
+    elif operator == "<":
+        query = queries.get_past_events
+        events = database.execute_sql_query(query, date_string)
+    if isinstance(events, Exception):
+        return events, 500
+    events_to_return = []
+    for event in events:
+        event_dictionary = {"eventname": event[0],
+                               "eventdate": event[1],
+                               "eventDescription": event[2],
+                               "eventLocation": event[3]}
+        print(event_dictionary)
+        events_to_return.append(event_dictionary)
+    return {'Events': events_to_return}
+
+
