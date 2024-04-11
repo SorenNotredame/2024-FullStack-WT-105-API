@@ -50,10 +50,9 @@ def post_contact_form(contactform: models.ContactForm):
 def get_events(operator : str = ">="):
     if operator == ">=":
         query = queries.get_future_events
-        events = database.execute_sql_query(query, date_string)
     elif operator == "<":
         query = queries.get_past_events
-        events = database.execute_sql_query(query, date_string)
+    events = database.execute_sql_query(query, date_string)
     if isinstance(events, Exception):
         return events, 500
     events_to_return = []
