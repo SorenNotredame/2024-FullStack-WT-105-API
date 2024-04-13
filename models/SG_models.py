@@ -18,5 +18,4 @@ class Event(BaseModel):
     eventDate: datetime
     eventDescription: str
     eventLocation: str
-    eventPrice: float = 0
     eventAccepted: int = 0
