@@ -57,10 +57,11 @@ def get_events(operator : str = ">="):
         return events, 500
     events_to_return = []
     for event in events:
-        event_dictionary = {"eventName": event[0],
-                               "eventDate": event[1],
-                               "eventDescription": event[2],
-                               "eventLocation": event[3]}
+        event_dictionary = {    "eventId": event[0],
+                                "eventName": event[1],
+                               "eventDate": event[2],
+                               "eventDescription": event[3],
+                               "eventLocation": event[4]}
         print(event_dictionary)
         events_to_return.append(event_dictionary)
     return {'Events': events_to_return}
