@@ -73,7 +73,6 @@ def submit_event(event: models.Event):
         event.eventDate,
         event.eventDescription,
         event.eventLocation,
-        event.eventPrice,
         event.eventAccepted,
     ))
     if success:

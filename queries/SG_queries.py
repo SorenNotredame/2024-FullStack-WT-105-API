@@ -8,4 +8,4 @@ get_future_events = "select eventName, eventDate, eventDescription, eventLocatio
 
 get_past_events = "select eventName, eventDate, eventDescription, eventLocation from brusselsbrews.event where eventDate < %s and eventAccepted = '1' order by eventDate, eventName;"
 
-submit_new_event= "INSERT INTO brusselsbrews.event (eventName, eventDate, eventDescription, eventLocation, eventPrice, eventAccepted) VALUES (%s, %s, %s, %s, %s, %s);"
+submit_new_event= "INSERT INTO brusselsbrews.event (eventName, eventDate, eventDescription, eventLocation, eventAccepted) VALUES (%s, %s, %s, %s, %s);"
