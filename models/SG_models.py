@@ -12,3 +12,11 @@ class ContactForm(BaseModel):
     terms: int
     addToMailingList: int = None
     submitDate: datetime
+
+class Event(BaseModel):
+    eventName: str
+    eventDate: datetime
+    eventDescription: str
+    eventLocation: str
+    eventPrice: float = 0
+    eventAccepted: int = 0

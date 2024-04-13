@@ -57,12 +57,24 @@ def get_events(operator : str = ">="):
         return events, 500
     events_to_return = []
     for event in events:
-        event_dictionary = {"eventname": event[0],
-                               "eventdate": event[1],
+        event_dictionary = {"eventName": event[0],
+                               "eventDate": event[1],
                                "eventDescription": event[2],
                                "eventLocation": event[3]}
         print(event_dictionary)
         events_to_return.append(event_dictionary)
     return {'Events': events_to_return}
 
-
+@app.post('/addevent')
+def submit_event(event: models.Event):
+    query = queries.submit_new_event
+    success = database.execute_sql_query(query, (
+        event.eventName,
+        event.eventDate,
+        event.eventDescription,
+        event.eventLocation,
+        event.eventPrice,
+        event.eventAccepted,
+    ))
+    if success:
+        return event
