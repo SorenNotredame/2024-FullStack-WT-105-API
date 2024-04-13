@@ -46,8 +46,9 @@ def post_contact_form(contactform: models.ContactForm):
     if success:
         return contactform
 
+
 @app.get('/events')
-def get_events(operator : str = ">="):
+def get_events(operator: str = ">="):
     if operator == ">=":
         query = queries.get_future_events
     elif operator == "<":
@@ -57,8 +58,8 @@ def get_events(operator : str = ">="):
         return events, 500
     events_to_return = []
     for event in events:
-        event_dictionary = {    "eventId": event[0],
-                                "eventName": event[1],
+        event_dictionary = {"eventId": event[0],
+                               "eventName": event[1],
                                "eventDate": event[2],
                                "eventDescription": event[3],
                                "eventLocation": event[4]}
