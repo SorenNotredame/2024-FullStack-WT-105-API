@@ -5,14 +5,17 @@ from queries import SG_queries as queries
 from models import SG_models as models
 from datetime import date
 
+
+app = APIRouter()
+
+
+#Used for timestamp in contactform
 today = date.today()
 date_string = (today.strftime("%Y-%m-%d"),)
 print(type(date_string))
 
 
-app = APIRouter()
-
-
+#Get all employeecards from brusselsbrews.employee
 @app.get('/employeecards')
 def get_all_employeescards():
     query = queries.get_all_employeecards
@@ -31,6 +34,7 @@ def get_all_employeescards():
     return {'Employeecards': carddata_to_return}
 
 
+# Post new contactform to brusselsbrews.contactforms
 @app.post('/contactforms')
 def post_contact_form(contactform: models.ContactForm):
     query = queries.submit_new_contactform
@@ -47,6 +51,7 @@ def post_contact_form(contactform: models.ContactForm):
         return contactform
 
 
+# Get events with optional operator from brusselsbrews.event
 @app.get('/events')
 def get_events(operator: str = ">="):
     if operator == ">=":
@@ -67,6 +72,7 @@ def get_events(operator: str = ">="):
         events_to_return.append(event_dictionary)
     return {'Events': events_to_return}
 
+# Post new event to brusselsbrews.event (for demo purposes)
 @app.post('/addevent')
 def submit_event(event: models.Event):
     query = queries.submit_new_event
